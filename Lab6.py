@@ -209,7 +209,7 @@ def lab6():
     for i in range(1, Nx - 2):
         U[i + j * Nx] = 1
 
-    for i in range(1, Nx):
+    for i in range(1, Nx - 2):
         for j in range(1, Ny - 2):
             O[i + j * Nx] = 1
 
@@ -266,8 +266,19 @@ U = -1 - X**2 + Y
 U1 = array(C_U)
 V1 = array(C_V)
 
-fig0, ax0 = plt.subplots()
-strm = ax0.streamplot(X, Y, U1, V1, color=U, linewidth=2, cmap=plt.cm.autumn)
+# fig0, ax0 = plt.subplots()
+# strm = ax0.streamplot(X, Y, U1, V1, color=U, linewidth=2, cmap=plt.cm.autumn)
+#
+#
+# plt.show()
 
+
+
+plt.figure()
+Q = plt.quiver(U1, V1)
+qk = plt.quiverkey(Q, 0, 0, 0, '')
+l, r, b, t = plt.axis()
+dx, dy = r - l, t - b
+plt.axis([l, r, b, t])
 
 plt.show()
